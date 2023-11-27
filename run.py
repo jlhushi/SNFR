@@ -56,7 +56,7 @@ def main():
         np.random.seed(data_seed)
         seed = data_seed if config['missing_rate'] == 0 else config['seed']
 
-        mask = get_mask(2, x1_train_raw.shape[0], config['missing_rate'])
+        mask = get_mask(2, x1_train_raw.shape[0], cdonfig['missing_rate'])
         x1_train = torch.from_numpy(x1_train_raw * mask[:, 0][:, np.newaxis]).float().to(device)
         x2_train = torch.from_numpy(x2_train_raw * mask[:, 1][:, np.newaxis]).float().to(device)
         mask = torch.from_numpy(mask).long().to(device)
